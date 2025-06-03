@@ -12,8 +12,8 @@ then
     DataPerson person = new DataPerson();
     person.setName($s);
     dataPersons.add(person);
-     org.kie.api.runtime.KieRuntime toto=kcontext.getKieRuntime();
-        toto.insert(person);
+
+     insert(person);
 end
 
 rule R2
