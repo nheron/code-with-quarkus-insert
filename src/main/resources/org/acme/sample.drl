@@ -1,0 +1,32 @@
+package org.acme;
+
+unit HelloWorldUnit;
+import org.acme.DataPerson;
+
+rule R1
+when
+    $s: /strings[ length > 2 ]
+then
+    results.add("Hello " + $s);
+
+    DataPerson person = new DataPerson();
+    person.setName($s);
+    dataPersons.add(person);
+     org.kie.api.runtime.KieRuntime toto=kcontext.getKieRuntime();
+        toto.insert(person);
+end
+
+rule R2
+when
+    $d : /dataPersons
+then
+    System.out.println("Coucou");
+    results.add("Coucou");
+end;
+rule R3
+when
+    $d : DataPerson()
+then
+    System.out.println("Coucou");
+    results.add("Coucou2");
+end;
